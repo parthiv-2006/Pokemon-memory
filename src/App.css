@@ -1,0 +1,8 @@
+.app {
+  /* Make the component a flex container */
+  display: flex;
+  flex-direction: column;
+
+  /* Ensure it fills the height of its parent (#root) */
+  min-height: 100vh;
+}

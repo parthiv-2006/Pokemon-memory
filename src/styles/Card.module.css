@@ -10,7 +10,7 @@
     transition: transform 0.15s ease-in-out;
 }
 .card img {
-  width: 35%;
+  width: 50%;
   flex-grow: 1;
   object-fit: contain;
   min-height: 0; 

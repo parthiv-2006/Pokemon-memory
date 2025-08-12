@@ -11,21 +11,20 @@ function App() {
 
   function handleCardClick(cardId) {
     if (clickedCards.includes(cardId)) {
-      score > highScore ? setHighScore(score) : setHighScore(highScore)
-      setScore(0)
-      setClickedCards([])
+      score > highScore ? setHighScore(score) : setHighScore(highScore);
+      setScore(0);
+      setClickedCards([]);
     } else {
-      setClickedCards([...clickedCards, cardId])
-      setScore(score + 1)
+      setClickedCards([...clickedCards, cardId]);
+      setScore(score + 1);
     }
-    shuffleCards()
+    shuffleCards();
   }
 
   function shuffleCards() {
     const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
     setCards(shuffledCards);
   }
-
 
   useEffect(() => {
     async function fetchPokemon() {
@@ -38,9 +37,9 @@ function App() {
           const response = await fetch(pokemon.url);
           return response.json();
         });
-        const detailedPokemonData = await Promise.all(detailPromises)
-        setCards(detailedPokemonData)
-        console.log(detailedPokemonData)
+        const detailedPokemonData = await Promise.all(detailPromises);
+        setCards(detailedPokemonData);
+        console.log(detailedPokemonData);
       } catch (error) {
         console.log(error);
       }
@@ -48,11 +47,10 @@ function App() {
     fetchPokemon();
   }, []);
 
-
   return (
-    <div>
+    <div className="app">
       <Scoreboard score={score} highScore={highScore} />
-      <CardGrid cards={cards} handleCardClick={handleCardClick}/>
+      <CardGrid cards={cards} handleCardClick={handleCardClick} />
     </div>
   );
 }
